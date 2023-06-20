@@ -1,0 +1,15 @@
+table,
+th,
+td {
+    border: medium solid;
+    border-spacing: 0;
+    border-spacing: 1rem; /*separación entre los bordes */
+}
+
+.table {
+    font-size: 3rem;
+    border-collapse: collapse; /* fusiona los bordes de las celdas*/
+    border-collapse: separate; /* por defecto */
+    empty-cells: hide; /*debe estar activado el border-collapse:separate*/
+    empty-cells: show; /*por defecto*/
+}

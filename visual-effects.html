@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- <html lang="es" class="dark-mode"> -->
+<html lang="es" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efectos Visuales en CSS</title>
+    <link rel="stylesheet" href="css/visual-effects.css">
+</head>
+<body>
+    <h1>Efectos Visuales en CSS</h1>
+    <hr>
+    <h2>Sombras</h2>
+    <div class="box shadows">
+        Sombras
+    </div>
+    <div class="box shadows-multiple">
+        Sombras
+    </div>
+    <div class="box drop-shadow">
+        <img  src="assets/arbol.png" alt="">
+    </div>
+    <div class="box drop-shadow">
+        <img  src="assets/HSL-wheel.jpg" alt="">
+    </div>
+    <hr>
+    <h2>Degradados</h2>
+    <h3>Lineal</h3>
+    <div class="box linear-gradient"></div>
+    <h3>Radial</h3>
+    <div class="box radial-gradient"></div>
+    <h3>Cónico</h3>
+    <div class="box conic-gradient"></div>
+
+    <h3>Repetir degradados</h3>
+    <div class="box repeat-gradient-lineal"></div>
+    <div class="box repeat-gradient-radial"></div>
+    <div class="box repeat-gradient-conic"></div>
+    
+    <h3>Gráficas Degradados</h3>
+    <div class="box chart-gradient"></div>
+    <div class="box donut-gradient"></div>
+
+    <h2>Filtros</h2>
+    <h3>Filtros</h3>
+    <article class="card">
+        <img class="filter" src="assets/puesta-sol.jpg" alt="">
+    </article>
+    <h3>Filtros múltiplos</h3>
+    <article class="card">
+        <img class="filters-multiple" src="assets/puesta-sol.jpg" alt="">
+    </article>
+    <h3>Filtros a Fondos</h3>
+    <article class="card relative">
+        <img src="assets/puesta-sol.jpg" alt="">
+        <div class="backdrop-filter">
+            <h4>Puesta de sol</h4>
+        </div>
+    </article>
+    <h3>Filtros Múltiples a Fondos</h3>
+    <article class="card relative">
+        <img src="assets/puesta-sol.jpg" alt="">
+        <div class="backdrop-filter-multiple">
+            <h4>Puesta de sol</h4>
+        </div>
+    </article>
+    <h3>Modo Dark/Light con Filtros</h3>
+    <article class="card">
+        <img src="assets/puesta-sol.jpg" alt="">
+    </article>
+    <article class="card">
+        <img src="assets/aves.png" alt="">
+    </article>
+    <hr>
+    <h2>Modos de Mezcla</h2>
+    <h3>Sobre imágenes (img)</h3>
+    <article class="card relative blend-mode">
+        <img src="assets/puesta-sol.jpg" alt="">
+        <img class="absolute" src="assets/BuenosDias.jpg" alt="">
+    </article>
+    <h3>Sobre imágenes de fondo (background-image)</h3>
+    <article class="card bg-blend-modes"></article>
+    <hr>
+    <h2>Máscaras</h2>
+    <article class="card clip-path">
+        <img src="assets/puesta-sol.jpg" alt="">
+    </article>
+    <h2>Formas</h2>
+    <article class="shapes">
+        <h3>Ejemplos de Formas y siluetas entre textos e imágenes</h3>
+        <img src="assets/puesta-sol.jpg" alt="Puesta de sol" class="float-left shape-1">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <img  src="assets/puesta-sol.jpg" alt="Puesta de sol" class="float-right shape-2">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <img src="assets/puesta-sol.jpg" alt="Puesta de sol" class="float-left shape-3">
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut cum, iusto eum animi labore, fugiat excepturi sit omnis dolorum quo iure iste quidem pariatur aperiam? Aspernatur esse ducimus porro ipsa.
+        </p>
+    </article>
+
+    
+    <a href="index.html#temario-css">☝️</a>
+</body>
+</html>

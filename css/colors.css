@@ -1,0 +1,125 @@
+/*
+https://htmlcolorcodes.com/
+*/
+
+/*COLORES POR NOMBRES*/
+.color-by-name{
+    background-color: coral;
+    color: rebeccapurple;
+    border: thick solid greenyellow
+}
+
+/*COLORES HEXADECIMALES*/
+/*
+0123456789ABCDEF
+Colores en HEX van a ser colores de 6 dígitos.
+Los dos primeros son para el Rojo, los dos siguientes para Verde
+y los dos últimos para el Azul;
+#FF6600
+Se puede abreviar y utilizar 3 dígitos:
+#f60
+
+También se puede aplicar opacidad de manera hexadcimal;
+Hay que añadir dos dígitos más al final, de 00 hasta 99.
+*/
+.color-hex{
+    background-color: #ff6600;
+    background-color: #f60;
+    background-color: #ff660050;
+    background-color: #f605;
+    color:#ffffff;
+    color: #fff;
+    color: #ff0000;
+    color: #f00;
+    color: #00ff00;
+    color: #0f0;
+    color: #0000ff;
+    color: #00f;
+    color: #000000;
+    color: #000;
+}
+
+/*COLORES RGB*/
+/*
+    Acetpa 8 bits por canal
+    Bit(0/1) 2 elevado a la potencia 8 = 2*2*2*2*2*2*2*2 = 256
+    También se puede aplicar opacidad, añadiendo un parámetro més a la función RGBA.
+    Se debe indicar un valor de 0 a 1 para medir la opacidad.
+*/
+.color-rgb{
+    background-color: rgb(255,255,255);
+    background-color: rgb(255,0,0);
+    background-color: rgb(0,255,0);
+    background-color: rgb(0,0,255);
+    background-color: rgb(0,0,0);
+    color: rgb(250,250,250);
+    border: thick solid rgba(125,125,125,.7)
+}
+
+/*COLORES HSL*/
+/*
+    HueSaturationLightness (Tono-Saturación-Luminosidad).
+
+    El primer valor es el Hue(Círculo Cromático)
+    0º -> Red
+    60º -> Yellow
+    120º -> Green
+    180º -> Cyan
+    240º -> Blue
+    300º -> Magenta
+    
+    El segundo valor es el Saturation (itensidad del color)
+    0% -> Escala de grises
+    100% -> Color puro
+
+    El tercer valor es Lightness (la luminosidad)
+    0% -> negro
+    100% -> blanco
+
+    También acepta opacidad, con la función hsla, de 0 a 1.
+*/
+.color-hsl{
+    background-color: hsl(0, 100%, 50%);
+    background-color: hsl(120, 100%,50%);
+    background-color: hsl(240, 100%,50%);
+    background-color: hsl(30,100%, 50%);
+    color: hsl(0, 0%, 0%);
+    color:hsl(0, 0%, 100%);
+    border: thick solid hsla(0, 30%, 43%, 0.5)
+}
+
+/*TRANSPARENT Y CURRENT COLOR*/
+/*Con transparent se elimina el color. Aplica rgba(0,0,0,0)
+Con currentColor se aplica el color. Hereda el valor por defecto o asignado
+de la propiedad color del padre que tenga definida esta propiedad. Busca del padre
+más cercano al más alejado. */
+.color-transparent-current {
+    background-color: darkmagenta;
+    background-color: transparent;
+    /* background-color: currentColor; */
+    border: medium solid currentColor;
+}
+
+/*OPACITY*/
+/*Se aplica opacidad a todas las propiedades que añadimos a la regla.
+El valor se asigna de 0 a 1. */
+.opacity {
+    background-color: orchid;
+    color: navy;
+    border: medium solid black;
+    opacity: .7;
+}
+
+/*Se podrían crear clases para diversos tipos de opacidades y aplicarlo al HTML*/
+
+.opacity-00 {
+    opacity: 0;
+}
+
+.opacity-10 {
+    opacity: .1;
+}
+
+.opacity-20 {
+    opacity: .2;
+}

@@ -1,0 +1,97 @@
+/* 
+Las variables deben definirse dentro de un selector.
+Las variables se podrán utilizar en el selector declarado y sus hijos.
+Para poder utilizar las variables en todos los elementos se utiliza la pseudoclase 'root'.
+Root hace referencia a la etiqueta <html> pero tiene más especificidad.
+Las variables deben empzar con doble guión.
+Para llamar a una variable se utiliza la función 'var()'.
+Se puede añadir un segundo valor a var, que servirá en caso que no se encuentr el primer 
+valor definido.
+ */
+
+ :root {
+    color: green;
+    --default-bg-color: skyblue;
+ }
+
+ /*Aunque por casacada debería aplicar el color rojo, por especificidad se aplica el verde de 'root'*/
+ html{
+    color: red;
+    box-sizing: border-box;
+ }
+
+ *,
+ *:before,
+ *:after{
+    box-sizing: border-box;
+ }
+
+.custom-props-1 {
+    --primary-color: rgb(171, 226, 120);
+    --font-size: 32px;
+    background-color: var(--primary-color);
+}
+
+.custom-props-3{ 
+    font-size: var(--font-size);
+    background-color: lightcoral;
+    margin: 20px;
+}
+
+/*
+Aquí no se está aplicando el color al título, porqué la variable está 
+definida dentro de otro ámbito. Solo aplica a las clases .custom-props-1 
+y las cajas hijas.vEl segundo valor de var sirve para aplicarlo si no puede encontrar el valor de la variable
+*/
+.title-props{ color: var(--primary-color, orange);}
+
+/*La variable 'border' se ha definido directamente en la etiqueta del HTML*/
+.custom-props-2 {
+    background-color: var(--default-bg-color);
+    margin: 20px;
+    border: thin solid var(--border-color);
+}
+
+/* FUNCIONES */
+
+/* calc(). 
+En este ejemplo, si sabemos el valor del padding, y el número de
+carácteres que habrá, se puede utilizar calc() para obtener un width que cubra 
+todo el elemento. 
+*/
+.ch-10 {
+    --padding-size: 2ch;
+    --num-ch: 10ch;
+    background-color: var(--default-bg-color);
+    font-size: 2rem;
+    padding: var(--padding-size);
+    width: calc(var(--num-ch) + var(--padding-size) * 2);
+}
+
+/* min() & max() 
+En este ejemplo, cuando utilizamos min() en la anchura, ésta va variando según la anchura
+de la pantalla, completando un 20% de la pantalla, por tanto la anchura varía de 0 a 200.
+Si la anchura de la pantalla es de más de 1000px, el 20% sería más de 200px, y debería tener 
+una anchura de 201px, por ejemplo, pero se queda en 200px y no pasa de ahí, porque le hemos 
+indicado que es el valro máximo.
+Para resumirlo, con la función min() siempre escogerá el valor mínimo.
+
+En max() pasa lo mismo pero al revés, la altura variará según la altura de la pantalla,
+pero siempre como mínimo tendrá 200px. Si la altura es de 1000px, ocupará 250px (el 25%),
+y si la altura es de 500px, ocupará 200px, porqué el 25% serían 125px, y 125 < 200.
+Para resumirlo, con la función max() siempre escogerá el valor máximo.
+
+Se pueden añadir varios valores, ej: min(200px, 20vw, 500px, 12rem). Siempre elige el menor.
+*/
+.min-max{
+    background-color: var(--default-bg-color);
+    margin-top: 1rem;
+    width: min(200px, 20vw);
+    height: max(200px, 25vh);
+}
+
+/* clamp()
+Con esta función indicamos el valor mínimo, el deseado, y el máximo.
+*/
+
+.clamp{ font-size: clamp(2rem, 1rem + 3vw, 3rem); }

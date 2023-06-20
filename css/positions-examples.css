@@ -1,0 +1,76 @@
+body { 
+    margin: 0;
+    /* padding-top: 50px; */
+}
+
+.header {
+    background-color: darkslategrey;
+    color: white;
+    width: 100%;
+    height: 50px;
+}
+
+/*Con fixed, el título h1 queda tapado por el contendor <header>.
+No guarda el espacio natural.*/
+.fixed-top {
+    position: fixed;
+    top:0;
+}
+
+/*Con sticky, el contenedor <header> no tapa el contenido que viene a continuación.
+Guarda su espacio. */
+.sticky-top {
+    position: sticky;
+    top: 0;
+}
+
+.hero-image{
+    background-color: palegoldenrod;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide {
+    background-color: palevioletred;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide:nth-child(odd){
+    background-color: paleturquoise;
+}
+
+.slide-title {
+    background-color: palegreen;
+    padding: 16px;
+    text-align: center;
+    position: sticky;
+    top:50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.modal-window {
+    background-color: black;
+    color: white;
+    position: fixed;
+    right:0;
+    top:0;
+    left:0;
+    bottom:0;
+    opacity: .7;
+    display: none;
+}
+
+.modal-window:target {
+    display: block;
+}
+
+/*PADDING NEGATIVO*/
+/*El padding negativo es ignorado, a diferencia de los margins*/
+.box{
+    background-color: sandybrown;
+    padding-right: -20px;
+    margin-top: -30px;
+    margin-left: -30px;
+}

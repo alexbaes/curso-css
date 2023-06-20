@@ -1,0 +1,24 @@
+img {
+    max-width: 100%;
+    height: auto; /*no hace falta añadirlo para los navegadores más actuales*/
+}
+
+.card {
+    border: medium solid black;
+    width: 400px;
+    height: 400px;
+}
+
+.card img {
+    background-color: aqua;
+    height: 300px;
+    object-fit: fill; /*por defecto, deforma la imagen */
+    object-fit: cover; /*recorta la imagen, pero no la deforma (zoom) */
+    object-fit: contain; /*no ocupa todo el espacio, podemos ver el color de fondo*/
+    object-fit: none; /*rellena la imagen recortando (zoom)*/
+    object-fit: scale-down; /*toma el valor que sea menor de los valores contain y none*/
+    object-position: right bottom;
+    object-position: 40% center;
+    object-position: 50% 50%; /*por defecto*/
+
+}

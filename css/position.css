@@ -1,0 +1,169 @@
+/*
+POSICIONAMIENTO CSS
+
+Las propiedades FLOAT y POSITION nos permiten modificar la posicio´n natural de
+cualquier elmento del documento HTML.
+
+El navegador coloca cada elemento teniendo en cuenta el orden en el que se 
+aparece en el documento y su tipo de visualización dependiendo si es un 
+elemento de línea o de bloque.
+
+Con FLOAT y POSITION podemos modificar este comportamiento.
+
+Elementos flotantes
+    -float: Convierte un elemento en flotante, desplazándolo hasta la zona más a la
+    izquierda o más a la derecha de la posición en la que originalmente se enconraba.
+    -clear: limpia la flotación (left, right, both).
+
+Tipos de posicionamiento
+    -static (default)
+    -relative
+    -absolute
+    -fixed
+    -sticky
+
+Para mover los elementos posicionados se activan las propiedades: 
+    -top (vertical-eje Y)
+    -bottom (vertical-eje Y)
+    -left (horizontal-eje X)
+    -right (horizontal-eje X)
+    -z-index (profundidad-eje Z)
+
+Las propiedades top y left van a tener preferencia por sobre bottom y right, respectivamente.
+
+Estas 5 propiedades no funcionan con el valor de static.
+
+*/
+
+/*STATIC*/
+/*Es el valor por defecto, significa que el elemento respeta el flujo del
+documento HTML, por lo que no se puede mover ni posicionar.*/
+.static {
+    background-color: yellow;
+    position: static;
+}
+
+/*RELATIVE*/
+/*El elemento conserva sus dimensiones y posicion original en el flujo del documento.
+Si se mueve toma como referencia su posición original*/
+.relative {
+    background-color: green;
+    color: white;
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: 40px;
+    left: 20px; 
+    /*También se utiliza bottom y right*/
+    /* bottom: 40px;
+    right: 20px; */
+    /*Para subir la caja hacia arriba se puede indicar valores negativos*/
+    /* top: -30px; */
+}
+
+/*ABSOLUTE*/
+/*El elemento pierde sus dimensiones y posición original en el flujo del documento.
+Si se mueve puede tomar como referencia 2 elementos:
+    1)El primer padre con posicionamiento relativo
+    2)Si no encuentra un padre relativo, se mueve respecto el documento HTML <html> (no <body>).*/
+.absolute {
+    background-color: turquoise;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.padre-relative {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    left:400px;
+    border: medium solid goldenrod;
+}
+
+.caja-absoluta {
+    position: absolute;
+    background-color: brown;
+    color: white;
+    top: 50px;
+    left: 50px;
+}
+
+/*FIXED*/
+/*El elemento pierde sus dimensiones y posición original en el flujo del documento.
+Si se mueve toma como referencia el documento HTML y queda fijo en la posciión, 
+cuando el scroll se mueva, el elemento no lo hará, se queda fijo.*/
+.fixed {
+    position: fixed;
+    background-color: yellowgreen;
+    width: 300px;
+    height: 100px;
+    right: 20px;
+    top: 10px;
+}
+
+/*STICKY*/
+/*Es una combinación entre relative y fixed, para este posicionamiento las propiedades
+de top, left, bottom y right no se mueven en el elemento, sirven como un punto de referencia,
+mientras no lleguen a ese valor, el elemento se comporta como relative, cuando llega se convierte 
+en fixed.
+
+Para que este comportamiento funcione el elemento sticky debe ser hijo directo del body o su 
+elemento contenedor debe tener dimensiones definidas y solo será sticky dentro de las dimensiones
+de su contenedor padre.*/
+.sticky{
+    position:sticky;
+    background-color: blueviolet;
+    color: white;
+    width: 200px;
+    height: 100px;
+    top:50px;
+    left: 200px;
+}
+
+/*necesita tener unas dimensiones para que funcione.
+La caja hija se converitrá en sticky cuando llegue el scroll y dejará de serlo
+cuando el scroll pase la caja padre.*/
+.padre-sticky{
+    background-color: bisque;
+    height: 300px;
+    width: 300px;
+    top: 200px;
+}
+
+.hija-sticky{
+    position: sticky;
+    top: 20px;
+    background-color: red;
+    color: white;
+    width: 100px;
+    height: 100px;
+}
+
+/*Z-INDEX*/
+/*Es una propiedad que nos permite controlar la profunidad de los elementos posicionados,
+su valor por defecto es auto, acepta números positivos, negativos y cero.
+
+A mayor valor, el elemento está más al frente, a menor valor, más al fondo.
+Se podría tener como referencia un eje Z.
+
+Un elemento padre nunca podrá estar sobre sus elementos hijos, sin embargo, los elementos
+hijos si pueden dándoles un valor negativo. Para esto, el elemento padre no puede tener ningún z-index. */
+.z-index-1,
+.z-index-2 {
+    background-color: mediumaquamarine;
+    border: thin solid black;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-2{
+    top: -200px;
+    left: 100px;
+}

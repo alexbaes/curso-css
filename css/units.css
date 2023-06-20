@@ -1,0 +1,228 @@
+/*
+
+UNIDADES DE MEDIDA
+
+    1) Absolutas (Su valor no cambia)
+        pc, cm, mm, in Q
+        pt (1/72in)
+        px (1/96in)
+
+    2) Relativas (su valor es relativo a un contexto)
+        a)em, rem, ex, ch - tamño de la fuente. La mayoría de navegadores tiene por defecto un tamaño de letra de 16px.
+            : basada en la anchura de la letra "m" de la fuente del elemento
+            rem: basada en la anchura de la letra "m" de la fuente del elemento raíz (html)
+            ex: basada en la altura de la letra "x" de la fuente del elemento
+            ch: basada en la anchura del número "0" de la fuente del elemento
+
+        b)%: tamaño del contenedor
+
+        c)vw, vh, vmin, vmax - tamaño del viewport
+            vw: ancho del viewport. Van de 1 a 100.
+            vh: alto del viewport. VAn del 1 a 100
+            vmax: entre vw y vh toma el que tenga mayor valor
+            vmin: entre vw y vh toma el que tenga menor valor
+
+    El "viewport" es la parte visible de la pantalla donde se renderiza el contenido
+    Conversiones entre unidades: http://pxtoem.com/
+
+*/
+
+/*Reset*/
+html { box-sizing: border-box;}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: cadetblue;
+    border: thick solid purple;
+}
+
+/*PIXELS*/
+/*No se aconseja utilizar px en el tamaño de letra, porque es una unidad estática*/
+.pixels { 
+    width: 500px;
+    height: 200px;
+    padding: 20px;
+    font-size: 16px; 
+}
+
+/*PUNTOS*/
+/*No se suelen utilizar estas unidades*/
+.puntos {
+    width: 500px;
+    height: 200px;
+    padding: 20px;
+    font-size: 16pt; 
+}
+
+/*EM*/
+/*
+Esta medida se basa en el tamaño de la fuente. Revisa el tamaño de la fuente del padre más próximo.
+Por defecto suele ser 16px, por tanto: 1em = 16px.
+Si el padre tiene establecida una medida (por ejemplo, font-size: 24px), la caja hija tendrá la siguiente
+medida en em: 1em = 24px (en lugar de los 16px por defecto).
+
+¡Importante!
+Si en la regla se establece la propiedad font-size, las demás propiedades tomarán como referencia su valor para aplicar
+los valores relativos. Por ejemplo, aquí se indica un font-size de 2em, por tanto, 32px. 
+Si le indicamos un padding de 1em, este tiene un valor de 32px (no de 16 como podríamos pensar).
+El padding tiene indicado 1em, y si lo inspeccionamos vemos que indica que son 32px (no 16 como podrías pensar).
+Si no estubiera indicado 'font-size' y indicado un padding de 1em, su valor sería 16px. 
+*/
+.em {
+    width: 20em; /* 1em = 32px x 20 = 640px */
+    height: 20em; /* 1em = 32px x 20 = 640px */
+    padding: 1em; /* 1em = 32px x 1 = 32px*/
+    font-size: 2em; /* 1em = 16px x 2 = 32px */
+}
+
+.em-child {
+    font-size: 1em; /* 1em = 32px (porqué la caja padre tiene establecido font-size: 2em (32px)*/
+    font-size: .5em; /* 1em = 32px x 0.5 = 16px */
+    padding: 1em; /* 1em = 16px * 1 = 16px */
+    border: 1px solid;
+}
+
+/*REM*/
+/*
+Esta medida se basa en el tamaño de la fuente. Revisa el tamaño de la fuente del HTML (no del padre)
+Por defecto suele ser 16px, por tanto: 1em = 16px.
+
+¡Importante!
+A diferencia de em, si se establece la propiedad font-size, las demás propiedades no lo tienen en cuenta
+y se fijan en el font-size de la etiqueta HTML. 
+*/
+.rem {
+    width: 20rem; /* 1rem = 16px x 20 = 320px */
+    height: 20rem; /* 1rem = 16px x 20 = 320px */
+    padding: 1rem; /* 1rem = 16px x 1 = 16px */
+    font-size: 2rem; /* 1rem = 16px x 2 = 32px */
+}
+
+.rem-child {
+    font-size: 1rem; /* 1rem = 16px (porqué HTML tiene establecido 16px (no importa la caja padre) */
+    font-size: .5rem; /* 1rem = 16px x 0.5 = 8px */
+    padding: 1rem; /* 1rem = 16px * 1 = 16px (no importa si font-size son 8px) */
+    border: 1px solid;
+}
+
+/* EX */
+/*
+Misma lógica que los 'em' pero toma como referencia la altura de letra 'x', en lugar el ancho de la letra 'm'. 
+Suele ser la mitad del tamaño de la fuende del navegador, es decir, 8px o 0.5em.
+No se suele utilizar esta medida.
+*/
+.ex { /*medidas aproximadas, concretamente para este caso sería 1ex = 14,86x0.5 = 7.43px. Depende la fuente.*/
+    width: 20ex; /* 1ex =  16x0.5 = 8px x 20 = 160px */
+    height: 20ex; /* 1ex =  16x0.5 = 8px x 20 = 160px */
+    padding: 1ex; /* 1ex = 16x0.5 = 8px x 1 = 8px*/
+    font-size: 2ex; /* 1ex = 16x0.5 = 8px x 2 = 16px*/
+}
+
+.ex-child {
+    font-size: 1ex; /* 1ex = 16px (porqué la caja padre tiene establecido font-size: 2ex (16px)*/
+    font-size: .5ex; /* 1ex = 16x0.5 = 8px */
+    padding: 1ex; /* 1ex = 8x0.5 = 4px x 1 = 4px */
+    border: 1px solid;
+}
+
+/* CH */
+/*
+Misma lógica que los 'em' pero toma como referencia el ancho del número '0', en lugar del ancho de la letra 'm'.
+No se suele utilizar, aunque puede servir si se tiene en cuenta 1ch = 1 carácter. De esta manera, 
+si el texto de un botón tiene 10 carácteres, puedes indicar un width de 10ch para cubrir exactamente el ancho.
+*/
+.ch {   /*medidas aproximadas, concretamente para este caso sería 1ch = 16..22x0.5 = 8.11px. */
+    width: 20ch; /* 1ch = 16x0.5 = 8px x 20 = 160px */
+    height: 20ch; /* 1ch = 16x0.5 = 8px x 20 = 160px */
+    padding: 1ch; /* 1ch = 16x0.5 = 8px x 1 = 8px */
+    font-size: 2ch; /* 1ch = 16x0.5 = 8px x 2 = 16px */
+}
+
+.ch-child {   
+    font-size: 1ch; /* 1ch = 16px (porqué la caja padre tiene establecido font-size: 2ch (16px)*/
+    font-size: .5ch; /* 1ch = 16x0.5 = 8px */
+    padding: 1ch; /* 1ch = 8x0.5 = 4px x 1 = 4px */
+    border: 1px solid;
+}
+
+.chs {
+    background-color: aqua;
+    width: 10ch;
+}
+
+/* % PORCENTAJE */
+/* Los elementos en línea ignoran el ancho y alto. Con el porcentaje le indicamos al elemento
+el espacio que debe ocupar respecto a su padre.
+Con el height hay que tener cuidado, la altura del contenido estará delimitada por el tamaño del contenido.
+Es posible que a veces se ignore la altura, porque depende del contenido.
+En esta regla, no está teniendo en cuenta el height, porque depende del contenido.
+*/
+.porcentaje {
+    width: 80%;
+    font-size: 100%;
+    padding: 5%;
+    margin: 10% 5%;
+    height: 100%;
+
+}
+
+.porcentaje-child {
+    border: 1px solid;
+}
+
+/*Aquí podemos ver como sí que en la caja hija hace caso del height
+Funciona porqué los porcentajes toman como referencia las medidas del contenedor
+En este caso, el contenedor padre tiene unas medidas establecidas, 
+al tener marcado un alto de 500px, sabe que el hijo debe ser la mitad. Si el padre no tiene
+un height marcado, el hijo no puede aplicar un height, dependerá del contenido.*/
+.height-parent {
+    width: 500px;
+    height: 300px;
+    background-color: brown;
+}
+
+.height-child{
+    background-color: coral;
+    width: 50%;
+    height: 50%;
+}
+
+/* VH y VW*/
+/*Estas medidas toman en cuenta el viewport, es decir, el tamaño de la pantalla
+en la que se está mostrando el contenido, y se va adpatando.*/
+/*Suele haber un problema con width: 100vw (no pasa esto con height:100vh)
+Esto pasa porque la etiqueta body tiene márgenes por defecto, y provoca un desbordamiento
+cuando se utiliza width:100vw. Además, la barra de sroll vertical tiene un ancho, y también
+forma parte del viewport, por tanto, también afecta. 
+La mejor solucion es utilizar width: 100%, en porcentaje 
+Cuando se trabaja en vw y vh, no importa si hay elementos hijos, siempre toma el viewport.
+*/
+.viewport {
+    width: 50vw;
+    width: 100vw; /*se desborda la caja y aparece la barra de scroll horizontal*/
+    width: 100%;
+    height: 50vh;
+    font-size: 5vw;
+}
+
+/* Para entender vmax y vmin, en este ejemplo, le indicamos que de anchura, queremos la mitad
+del más grande, entre anchura y altura del viewport. Por tanto, si la anchura del viewport es
+de 1024px y la altura de 1500px, el width será 750px, porqué la altura es mayor que la altura.
+El height le indicamos que sea la mitad del valor más pequeño, que en este caso es el ancho,
+ya que 1024 < 1500, por tanto, la altura será de 512px. 
+Esto es solo para entenderlo, ya que es dinámico y varía según las medidas del viewport en
+todo momento. */ 
+.vmax, 
+.vmin {
+    background-color: darksalmon;
+    width: 50vmax;
+    height: 50vmin;
+    border: thick solid cyan;
+}
+
+
